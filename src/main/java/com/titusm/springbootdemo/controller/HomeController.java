@@ -22,4 +22,14 @@ public class HomeController {
         return user;
     }
 
+    @GetMapping("/user/{id}/{id2}")
+    public String pathVariable(@PathVariable String id, @PathVariable String id2){
+        return "The path variable is " + id +" and " + id2;
+    }
+
+    @RequestMapping("/requestParam")
+    public String requestParams(@RequestParam String name) {
+        return "Your name is : " + name;
+    }
+
 }
