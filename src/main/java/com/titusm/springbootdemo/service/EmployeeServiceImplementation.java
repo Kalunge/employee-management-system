@@ -1,5 +1,6 @@
 package com.titusm.springbootdemo.service;
 
+import com.titusm.springbootdemo.exceptions.EmployeeNotFoundException;
 import com.titusm.springbootdemo.model.Employee;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +31,10 @@ public class EmployeeServiceImplementation implements  EmployeeService{
 
     @Override
     public Employee getById(String id) {
-        return employees.stream().filter(employee -> employee.getEmployeeId().equalsIgnoreCase(id)).findFirst().get();
+        return employees.stream()
+                .filter(employee -> employee.getEmployeeId().equalsIgnoreCase(id))
+                .findFirst()
+                .orElseThrow(() -> new EmployeeNotFoundException("Employee not found with id " + id));
     }
 
 
