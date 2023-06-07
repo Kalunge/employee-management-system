@@ -28,5 +28,10 @@ public class EmployeeController {
         return employeeService.getById(id);
     }
 
+    @DeleteMapping("/{id}")
+    public String deleteEmployeeById(@PathVariable String id) {
+        return employeeService.deleteById(id);
+    }
+
 
 }

@@ -10,4 +10,6 @@ public interface EmployeeService {
     List<Employee> getAll();
 
     Employee getById(String id);
+
+    String deleteById(String id);
 }
