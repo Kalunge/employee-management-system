@@ -13,8 +13,6 @@ public class EmployeeServiceImplementation implements  EmployeeService{
     List<Employee> employees = new ArrayList<>();
 
 
-
-
     @Override
     public Employee save(Employee employee) {
         if(employee.getEmployeeId() == null || employee.getEmail().isEmpty()) {
@@ -24,4 +22,16 @@ public class EmployeeServiceImplementation implements  EmployeeService{
         employees.add(employee);
         return employee;
     }
+
+    @Override
+    public List<Employee> getAll() {
+        return employees;
+    }
+
+    @Override
+    public Employee getById(String id) {
+        return employees.stream().filter(employee -> employee.getEmployeeId().equalsIgnoreCase(id)).findFirst().get();
+    }
+
+
 }
