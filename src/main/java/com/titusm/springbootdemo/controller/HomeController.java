@@ -1,16 +1,25 @@
 package com.titusm.springbootdemo.controller;
 
+import com.titusm.springbootdemo.model.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
-@ResponseBody
+@RestController
 public class HomeController {
 
     @RequestMapping("/")
     public String home() {
-        return "hello world and welcome to my application there ";
+        return "hello  and welcome to my application I am a java programmer ";
+    }
+
+    @GetMapping("/user")
+    public User userInfo() {
+        User user = new User();
+        user.setId("1");
+        user.setName("Titus Muthomi");
+        user.setEmailId("titus@mail.com");
+
+        return user;
     }
 
 }
