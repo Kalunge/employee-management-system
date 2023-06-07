@@ -28,8 +28,9 @@ public class HomeController {
     }
 
     @RequestMapping("/requestParam")
-    public String requestParams(@RequestParam String name) {
-        return "Your name is : " + name;
+    public String requestParams(@RequestParam String name, @RequestParam(
+            name = "email", required = false, defaultValue = "") String emailId) {
+        return "Your name is : " + name +" and email is " + emailId;
     }
 
 }
