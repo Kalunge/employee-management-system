@@ -1,10 +1,15 @@
 package com.titusm.springbootdemo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+//@JsonIgnoreProperties({})
 public class Employee {
     private String employeeId;
     private String firstName;
     private String lastName;
     private String email;
+//    @JsonIgnore
     private String department;
 
     public String getEmployeeId() {
